@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .txt {
+            font-size: 100px;
+            width: 500px;
+            margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #00008b;
+    border-radius: 20px;
+        }
+
+        .holder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<html>
+
+<body onload="startTime()">
+<div class="holder">
+<div id="txt" class="txt"></div>
+</div>
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
+</body>
+</html>
